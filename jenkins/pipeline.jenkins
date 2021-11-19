@@ -16,7 +16,7 @@ pipeline {
         stage('Download SC and install env') {
             steps {
                 script {
-                    git branch: 'master', credentialsId: 'github_key', url: "git@github.com:NikAvrinsky/ci-cd.git"
+                    git branch: 'main', credentialsId: 'github_key', url: "git@github.com:NikAvrinsky/ci-cd.git"
                     sh "npm install"
                 }
             }
