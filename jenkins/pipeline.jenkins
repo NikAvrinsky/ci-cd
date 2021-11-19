@@ -18,7 +18,7 @@ pipeline {
                 script {
                     git branch: 'master', credentialsId: 'github_key', url: "git@github.com:NikAvrinsky/ci-cd.git"
                     sh "npm install"
-                    sh "npm build"
+                    sh "npm run build"
                 }
             }
         }
