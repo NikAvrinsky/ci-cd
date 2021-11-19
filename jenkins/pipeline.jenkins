@@ -16,7 +16,7 @@ pipeline {
         stage('Download SC and build prod version') {
             steps {
                 script {
-                    git branch: 'master', credentialsId: 'github_key', url: "git@github.com:NikAvrinsky/ci-cd-gallery.git"
+                    git branch: 'master', credentialsId: 'github_key', url: "git@github.com:NikAvrinsky/ci-cd.git"
                     sh "npm install"
                     sh "npm build"
                 }
