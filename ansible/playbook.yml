@@ -1,0 +1,11 @@
+---
+
+- name: "Test playbook run"
+
+  hosts: STAGING
+
+  tasks:
+
+    - name: "Copy build to the webservers"
+
+      copy: "src=./build/ dest=/var/www/html/"

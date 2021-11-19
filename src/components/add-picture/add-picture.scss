@@ -1,0 +1,69 @@
+$mainc:rgb(196, 132, 238);
+$dmainc: rgb(157, 59, 223);
+$defaultc:#ccc;
+
+.add__wrapper {
+    display: flex;
+}
+
+.add__form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.add__preview {
+    position: absolute;
+    display: none;
+    z-index: -1;
+} 
+
+.add__holder {
+    width:100%;
+    margin-right: 10px;
+    padding: 0 3em;
+    border: 2px dashed $defaultc;
+    border-radius: 3em;
+    &_hovered {
+        width:100%;
+        margin-right: 10px;
+        padding: 0 3em;
+        border: 2px dashed $mainc; 
+        border-radius: 3em;    
+    }
+}
+
+.add__input {
+    font-size: 1rem;;
+    outline: none;
+    border: none;
+    margin-right: 10px;
+    min-height: 50px;
+    width: 100%;
+    
+}
+
+.add__button {
+    animation-duration: 0.5s;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0 2rem;
+    color: #fff;
+    background-color: rgb(196, 132, 238);
+    outline: none;
+    border: none;
+    border-radius: 3rem;
+    &:hover {
+        background-color: $dmainc;       
+    }
+    &:active {
+        outline: none;
+        transform: translateY(4px);
+    }
+    &:focus {
+        outline: none;
+    }
+}

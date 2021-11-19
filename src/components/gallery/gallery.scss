@@ -1,0 +1,12 @@
+.gallery {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    &__placeholder {
+        padding: 150px;
+        text-align: center;
+        color: gainsboro;
+        }
+}

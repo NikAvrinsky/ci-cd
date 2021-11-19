@@ -1,0 +1,12 @@
+.gallery__skeleton {
+    background: rgb(161,161,161);
+    background: linear-gradient(90deg, rgba(161,161,161,1) 0%, rgba(227,227,227,0.5) 30%, rgba(161,161,161,1) 100%);
+    background-position: 0 0;
+    animation: background 2s infinite alternate;
+    
+}
+@keyframes background {
+    100% {
+      background-position: 200px 0;
+    }
+}
