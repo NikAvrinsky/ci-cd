@@ -13,11 +13,17 @@ pipeline {
     }
 
     stages {
-        stage('Download SC and build prod version') {
+        stage('Download SC and install env') {
             steps {
                 script {
                     git branch: 'master', credentialsId: 'github_key', url: "git@github.com:NikAvrinsky/ci-cd.git"
                     sh "npm install"
+                }
+            }
+        }
+         stage('Build prod from sources') {
+            steps {
+                script {
                     sh "npm run build"
                 }
             }
