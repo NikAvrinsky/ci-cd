@@ -24,6 +24,7 @@ pipeline {
          stage('Build prod from sources') {
             steps {
                 script {
+                    sh "mkdir build"
                     sh "npm run build"
                 }
             }
