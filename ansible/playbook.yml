@@ -4,8 +4,6 @@
 
   hosts: all
   become: true
-  become_method: su
-  become_user: root
   tasks:
     - name: "Installing and enabling nginx if needed"
       
