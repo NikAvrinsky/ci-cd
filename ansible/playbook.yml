@@ -5,11 +5,12 @@
   hosts: all
   become: true
   tasks:
-    - name: "Installing and enabling nginx if needed"
+  - name: "Installing and enabling nginx if needed"
       
-      apt: "name=nginx state=latest"
-      service: "name=nginx state=started enables=yes"
+    apt: "name=nginx state=latest"
+    service: "name=nginx state=started enables=yes"
 
-    - name: "Copy build to the webservers"
 
-      copy: "src=./build/ dest=/var/www/html/"
+  - name: "Copy build to the webservers"
+
+    copy: "src=./build/ dest=/var/www/html/"
