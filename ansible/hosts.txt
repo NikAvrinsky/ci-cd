@@ -1,3 +1,2 @@
 [ALL]
 stage1 ansible_host=172.20.0.10 ansible_user=kamazz ansible_ssh_private_key_file=/home/kamazz/.ssh/id_rsa
-stage2 ansible_host=172.20.0.11 ansible_user=kamazz ansible_ssh_private_key_file=/home/kamazz/.ssh/id_rsa
