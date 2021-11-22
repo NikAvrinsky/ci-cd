@@ -8,8 +8,7 @@
     - name: "Installing and enabling nginx if needed"
       
       apt: "name=nginx state=latest"
-      notify:
-        - nginx systemd
+      service: "name=nginx state=started enables=yes"
 
     - name: "Copy build to the webservers"
 
