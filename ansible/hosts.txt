@@ -1,3 +1,2 @@
 [STAGING]
-Server2 ansible_host=172.20.0.10 ansible_user=kamazz ansible_ssh_private_key_file=/var/lib/jenkins/.ssh/ansible_rsa
-Server1 ansible_host=172.20.0.11 ansible_user=kamazz ansible_ssh_private_key_file=/var/lib/jenkins/.ssh/ansible_rsa
+stage1 ansible_host=172.20.0.10 ansible_user=kamazz ansible_ssh_private_key_file=/var/lib/jenkins/.ssh/ansible_rsa

@@ -24,14 +24,13 @@ pipeline {
          stage('Build prod from sources') {
             steps {
                 script {
-                    sh "mkdir build"
                     sh "npm run build"
                 }
             }
         }
-        stage('Deploy build with Ansible') {
+        stage('Deploy build to Prod server') {
             steps {
-                sh 'ansible-playbook ./ansible/playbook.yml -i hosts'
+                sh 'ansible-playbook ./ansible/playbook.yml -i ./ansible/hosts'
             }
         }
     }
