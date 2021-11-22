@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Deploy build to Prod server') {
             steps {
-                sh 'ansible-playbook ./ansible/playbook.yml -i ./ansible/hosts'
+                sh 'ansible-playbook ./ansible/playbook.yml -i ./ansible/hosts.txt'
             }
         }
     }
