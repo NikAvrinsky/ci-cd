@@ -3,8 +3,15 @@
 - name: "Test playbook run"
 
   hosts: STAGING
-
+  become: true
+  become_method: su
+  become_user: root
   tasks:
+    - name: "Installing and enabling nginx if needed"
+      
+      apt: "name=nginx state=latest"
+      notify:
+        - nginx systemd
 
     - name: "Copy build to the webservers"
 
