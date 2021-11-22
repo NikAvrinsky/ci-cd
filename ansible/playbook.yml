@@ -6,14 +6,14 @@
   become: true
   tasks:
     - name: "Installing and enabling nginx if needed"
-      
+
       apt: "name=nginx state=latest"
       notify:
         - nginx systemd
 
     - name: "Copy build to the webservers"
 
-      copy: "src=./build/ dest=/var/www/html/"
+      copy: "src=/var/lib/jenkins/workspace/react-gallery/build/ dest=/var/www/html/"
 
 
   handlers:
