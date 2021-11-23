@@ -1,0 +1,33 @@
+---
+# tasks file for deploy_nginx
+- name: Check and print OS
+  debug: var=ansible_os_family
+
+- block: # Install Nginx Web Server on Debian
+
+  - name: Install Nginx Web Server on Debian
+    apt: name=nginx state=latest
+
+  - name: Copy artifact to the Web Server # and unarcive
+    copy: src={{ source }} dest={{ dest_dir }} mode=0555
+    #unarchive: src=/var/www/html/buils.tar.gz dest={{ dest_dir }} remote_src=yes
+    notify: Restart Nginx
+
+  - name: Start Web Server service
+    service: name=nginx state=started enabled=yes    
+
+  when: ansible_os_family == "Debian"
+    
+- block: # Install Nginx Web Server on CentOS
+
+  - name: Install Nginx Web Server on CentOS
+    yum: name=nginx state=latest
+
+  - name: Copy artifact to the Web Server # and unarchive
+    copy: src={{ source }} dest={{ dest_dir }} mode=0555
+    notify: Restart Nginx  
+
+  - name: Start Web Server service
+    service: name=nginx state=started enabled=yes
+
+  when: ansible_os_family != "Debian"

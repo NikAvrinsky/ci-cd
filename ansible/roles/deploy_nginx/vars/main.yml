@@ -1,0 +1,3 @@
+---
+# vars file for deploy_nginx
+dest_dir: /var/www/html/
