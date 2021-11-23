@@ -23,6 +23,7 @@
 
     - name: Start Web Server service
       service: name=nginx state=started enabled=yes    
+
     when: ansible_os_family == "Debian"
     
   - block: # Install Nginx Web Server on CentOS
@@ -36,6 +37,7 @@
 
     - name: Start Web Server service
       service: name=nginx state=started enabled=yes
+      
     when: ansible_os_family != "Debian"
 
   handlers:
