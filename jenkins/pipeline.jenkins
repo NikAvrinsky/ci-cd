@@ -21,7 +21,7 @@ pipeline {
                 }
             }
         }
-         stage('Build artifact from sources and pack to .gz') {
+         stage('Build artifact from sources and archive') {
             steps {
                 script {
                     sh "npm run build"
