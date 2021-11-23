@@ -1,6 +1,6 @@
 ---
 
-- name: "Test playbook run"
+- name: Test playbook run
   hosts: all
   become: yes
 
@@ -9,22 +9,22 @@
     destin_dir: /var/www/html/
 
   tasks:
-  - name: "Check and print OS"
+  - name: Check and print OS
     debug: var=ansible_os_family
 
-  - name: "Install Nginx Web Server on Debian"
+  - name: Install Nginx Web Server on Debian
     apt: "name=nginx state=latest"
     when: ansible_os_family == "Debian"
 
-  - name: "Install Nginx Web Server on CentOS"
+  - name: Install Nginx Web Server on CentOS
     yum: "name=nginx state=latest"
     when: ansible_os_family != "Debian"
 
-  - name: "Copy build to the Web Server"
+  - name: Copy build to the Web Server
     copy: "src={{ source_die }} dest={{ dest_dir }} mode=0555"
     notyfy: Restart Nginx
 
-  - name: "Start Web Server service"
+  - name: Start Web Server service
     service: "name=nginx state=started enabled=yes"
 
   handlers:
