@@ -5,7 +5,7 @@
   become: yes 
 
   vars:
-    source_dir: /var/lib/jenkins/workspace/react-gallery/build/
+    source_dir: ./build/
     destin_dir: /var/www/html/
 
   tasks:
@@ -13,20 +13,20 @@
     debug: var=ansible_os_family
 
   - name: Install Nginx Web Server on Debian
-    apt: "name=nginx state=latest"
+    apt: name=nginx state=latest
     when: ansible_os_family == "Debian"
 
   - name: Install Nginx Web Server on CentOS
-    yum: "name=nginx state=latest"
+    yum: name=nginx state=latest
     when: ansible_os_family != "Debian"
 
   - name: Copy build to the Web Server
-    copy: "src={{ source_dir }} dest={{ dest_dir }} mode=0555"
+    copy: src={{ source_dir }} dest={{ dest_dir }} mode=0555
     notify: Restart Nginx
 
   - name: Start Web Server service
-    service: "name=nginx state=started enabled=yes"
+    service: name=nginx state=started enabled=yes
 
   handlers:
    - name: Restart Nginx 
-     service: "name=nginx state=restarted"
+     service: name=nginx state=restarted
