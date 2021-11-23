@@ -6,7 +6,7 @@
 
   vars:
     source_dir: ./build/
-    destin_dir: /var/www/html/
+    dest_dir: /var/www/html/
 
   tasks:
   - name: Check and print OS
