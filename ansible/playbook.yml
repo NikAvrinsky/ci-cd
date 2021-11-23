@@ -22,7 +22,7 @@
 
   - name: Copy build to the Web Server
     copy: "src={{ source_die }} dest={{ dest_dir }} mode=0555"
-    notyfy: Restart Nginx
+    notify: Restart Nginx
 
   - name: Start Web Server service
     service: "name=nginx state=started enabled=yes"
