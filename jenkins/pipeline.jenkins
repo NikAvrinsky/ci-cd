@@ -21,11 +21,11 @@ pipeline {
                 }
             }
         }
-         stage('Build artifact from sources and archive') {
+         stage('Build artifact from sources') {
             steps {
                 script {
                     sh "npm run build"
-                    sh "tar -zcvf build.tar.gz ./build"
+                    sh "cp ./build/ ./ansible/roles/deploy_nginx/files/"
                 }
             }
         }
