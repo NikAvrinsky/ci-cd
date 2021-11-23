@@ -5,7 +5,7 @@
   become: yes 
 
   vars:
-    source_dir: ./build/
+    source_dir: /var/lib/jenkins/workspace/react-gallery/build/
     dest_dir: /var/www/html/
 
   tasks:
