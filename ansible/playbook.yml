@@ -17,7 +17,7 @@
     - name: Install Nginx Web Server on Debian
       apt: name=nginx state=latest
 
-    - name: Copy build to the Web Server
+    - name: Copy artifact to the Web Server and unarcive
       copy: src={{ source_dir }} dest={{ dest_dir }} mode=0555
       notify: Restart Nginx
 
@@ -31,9 +31,9 @@
     - name: Install Nginx Web Server on CentOS
       yum: name=nginx state=latest
 
-    - name: Copy build to the Web Server
+    - name: Copy artifact to the Web Server and unarchive
       copy: src={{ source_file }} dest={{ dest_dir }} mode=0555
-      unarchive: src=/var/www/html/buils.tar.gz dest=./
+      unarchive: src=/var/www/html/buils.tar.gz dest={{ dest_dir }} remote_src=yes
       notify: Restart Nginx  
 
     - name: Start Web Server service
