@@ -6,6 +6,10 @@
 Образец json-файла находится в корне проекта.
 Так же его можно добавить по ссылке: https://don16obqbay2c.cloudfront.net/frontend-test-task/gallery-images.json
 
+CI / CD 
+
+CI часть реализована на Jenkins. Деплой происходит при помощи Ansible.
+
 ТЗ:
 
 Тестовое задание

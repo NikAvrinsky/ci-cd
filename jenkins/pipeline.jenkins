@@ -13,7 +13,7 @@ pipeline {
     }
 
     stages {
-        stage('Download SC and install env') {
+        stage('Download sources and install environment') {
             steps {
                 script {
                     git branch: 'main', credentialsId: 'github_key', url: "git@github.com:NikAvrinsky/ci-cd.git"
@@ -21,14 +21,15 @@ pipeline {
                 }
             }
         }
-         stage('Build prod from sources') {
+         stage('Build artifact from sources and pack to .gz') {
             steps {
                 script {
                     sh "npm run build"
+                    sh "tar -zcvf build.tar.gz ./build"
                 }
             }
         }
-        stage('Deploy build to Prod server') {
+        stage('Deploy build to the server via Ansible') {
             steps {
                 sh 'ansible-playbook ./ansible/playbook.yml -i ./ansible/hosts.txt'
             }
